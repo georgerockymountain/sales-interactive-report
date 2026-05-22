@@ -1,5 +1,5 @@
-# Sales Performance — Interactive Report
+# Sales Pricing Exception Report
 
-Static GitHub Pages report generated from `Sales_Master_Consolidated_May26.xlsx`.
+Interactive GitHub Pages report for detecting abnormal unit pricing in `Sales_Master_Consolidated_May26.xlsx`.
 
-The published report excludes source filenames/workbook metadata and uses station/date/product aggregates only.
+Detection rule: unit price = gross revenue / quantity, compared against product-level median expected unit price. The report flags Watch/High/Critical variances and identifies the raw document and station/category party to investigate.

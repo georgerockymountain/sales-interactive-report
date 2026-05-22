@@ -3,27 +3,21 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sales Performance — Interactive Report</title>
-  <meta name="description" content="Interactive sales report generated from the sales Excel workbook." />
+  <title>Sales Pricing Exception Report</title>
+  <meta name="description" content="Interactive abnormal pricing detector for sales Excel data." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="hero">
     <nav class="topbar">
-      <a href="#summary">Summary</a>
-      <a href="#insights">Insights</a>
-      <a href="#charts">Charts</a>
-      <a href="#details">Details</a>
+      <a href="#summary">Summary</a><a href="#exceptions">Exceptions</a><a href="#benchmarks">Benchmarks</a><a href="#workflow">Action</a>
     </nav>
     <div class="hero-grid">
       <div>
-        <p class="eyebrow">Sales Excel · Interactive web report</p>
-        <h1>Sales Performance</h1>
-        <p class="lead">A clean dashboard for station, product and daily sales performance.</p>
-        <div class="actions">
-          <a class="button primary" href="#charts">Explore dashboard</a>
-          <a class="button" href="data/sales-aggregates.csv" download>Download sanitized CSV</a>
-        </div>
+        <p class="eyebrow">Sales Excel · Pricing exception detector</p>
+        <h1>Pricing Exceptions</h1>
+        <p class="lead">Find abnormal unit prices, identify the raw document to re-check, and route each issue to the right party.</p>
+        <div class="actions"><a class="button primary" href="#exceptions">Review exceptions</a><a class="button" href="data/pricing-exceptions.csv" download>Download exception CSV</a></div>
       </div>
       <aside class="hero-card" id="run-card"></aside>
     </div>
@@ -31,61 +25,47 @@
 
   <main>
     <section id="summary" class="section">
-      <div class="section-heading">
-        <p class="eyebrow">Headline KPIs</p>
-        <h2>Revenue, volume and mix across stations and product categories.</h2>
-      </div>
+      <div class="section-heading"><p class="eyebrow">Exception summary</p><h2>Unit-price variance check against product benchmarks.</h2></div>
       <div class="cards" id="metric-cards"></div>
-      <div class="callout"><strong>Publication note:</strong> source filenames/workbook metadata are not shown; the dashboard uses station/date/product aggregates only.</div>
+      <div id="status-callout" class="callout"></div>
     </section>
 
-    <section id="insights" class="section panel">
-      <div class="section-heading">
-        <p class="eyebrow">Executive readout</p>
-        <h2>Quick findings from the sales workbook.</h2>
-      </div>
-      <div class="insight-grid" id="insight-grid"></div>
-    </section>
-
-    <section id="charts" class="section">
+    <section id="exceptions" class="section panel">
       <div class="section-heading split">
-        <div>
-          <p class="eyebrow">Interactive dashboard</p>
-          <h2>Filter by station or product to update every view.</h2>
-        </div>
+        <div><p class="eyebrow">Investigation queue</p><h2>Prioritised rows to double-check in raw documents.</h2></div>
         <div class="controls">
+          <select id="severity-filter"><option value="action">Action items only</option><option value="all">All rows</option><option>Critical</option><option>High</option><option>Watch</option><option>Normal</option></select>
           <select id="station-filter"><option value="all">All stations</option></select>
-          <select id="product-filter"><option value="all">All products</option></select>
+          <input id="search" type="search" placeholder="Search product, document, party…" />
         </div>
       </div>
       <div class="chart-grid">
-        <article class="chart-card wide"><h3>Daily gross revenue</h3><div id="date-chart" class="chart"></div></article>
-        <article class="chart-card"><h3>Revenue by station</h3><div id="station-chart" class="chart"></div></article>
-        <article class="chart-card"><h3>Revenue by product</h3><div id="product-chart" class="chart"></div></article>
-        <article class="chart-card wide"><h3>Station × product matrix</h3><div id="matrix" class="matrix"></div></article>
-      </div>
-    </section>
-
-    <section id="details" class="section panel">
-      <div class="section-heading split">
-        <div>
-          <p class="eyebrow">Details</p>
-          <h2>Aggregated sales rows.</h2>
-        </div>
-        <input id="search" type="search" placeholder="Search station, product, date…" />
+        <article class="chart-card"><h3>Exceptions by station</h3><div id="station-chart" class="chart"></div></article>
+        <article class="chart-card"><h3>Exceptions by product</h3><div id="product-chart" class="chart"></div></article>
       </div>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>Date</th><th>Station</th><th>Product</th><th>Qty</th><th>Gross revenue</th><th>Avg/unit</th></tr></thead>
-          <tbody id="table-body"></tbody>
+          <thead><tr><th>Severity</th><th>Date</th><th>Station / party</th><th>Product</th><th>Qty</th><th>Unit price</th><th>Expected</th><th>Variance</th><th>Raw document to check</th><th>Action</th></tr></thead>
+          <tbody id="exception-body"></tbody>
         </table>
       </div>
+      <p class="hint">Click any row for the full check list and estimated revenue impact.</p>
+    </section>
+
+    <section id="benchmarks" class="section">
+      <div class="section-heading"><p class="eyebrow">Pricing benchmark</p><h2>Expected unit prices by product category.</h2></div>
+      <div id="benchmark-grid" class="cards"></div>
+    </section>
+
+    <section id="workflow" class="section panel">
+      <div class="section-heading"><p class="eyebrow">Action workflow</p><h2>How to use this report.</h2></div>
+      <ol id="workflow-list"></ol>
+      <div class="callout"><strong>Rule:</strong> <span id="rule-summary"></span></div>
     </section>
   </main>
 
-  <footer>
-    <p>Generated from <code>Sales_Master_Consolidated_May26.xlsx</code>. Separate from the DPO report, which remains online unchanged.</p>
-  </footer>
+  <dialog id="row-dialog"><button class="close" aria-label="Close dialog">×</button><div id="dialog-content"></div></dialog>
+  <footer><p>Generated from <code>Sales_Master_Consolidated_May26.xlsx</code>. DPO report remains unchanged.</p></footer>
   <script src="app.js"></script>
 </body>
 </html>
