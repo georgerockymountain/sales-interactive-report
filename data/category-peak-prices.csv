@@ -1,0 +1,16 @@
+product,station,date,qty,grossRevenue,unitPrice,peakUnitPrice,currency,sourceDocument,investigationParty,secondaryParty,investigationReason
+Accessories,HKG,2026-05-18,120,2400.0,20.0,20.0,HKD,HKG_Revenue_May26.csv,HKG station sales / document owner,Accessories category owner / pricing owner,Peak unit price for category
+Accessories,HKG,2026-05-20,110,2200.0,20.0,20.0,HKD,HKG_Revenue_May26.csv,HKG station sales / document owner,Accessories category owner / pricing owner,Peak unit price for category
+Accessories,KIX,2026-05-19,95,1900.0,20.0,20.0,HKD,KIX_Sales_Report.xlsx,KIX station sales / document owner,Accessories category owner / pricing owner,Peak unit price for category
+Accessories,LHR,2026-05-18,150,3000.0,20.0,20.0,HKD,LHR_Data_Export.xlsx,LHR station sales / document owner,Accessories category owner / pricing owner,Peak unit price for category
+Apparel,HKG,2026-05-19,55,3300.0,60.0,60.0,HKD,HKG_Revenue_May26.csv,HKG station sales / document owner,Apparel category owner / pricing owner,Peak unit price for category
+Apparel,KIX,2026-05-18,85,5100.0,60.0,60.0,HKD,KIX_Sales_Report.xlsx,KIX station sales / document owner,Apparel category owner / pricing owner,Peak unit price for category
+Apparel,KIX,2026-05-20,90,5400.0,60.0,60.0,HKD,KIX_Sales_Report.xlsx,KIX station sales / document owner,Apparel category owner / pricing owner,Peak unit price for category
+Apparel,LHR,2026-05-18,40,2400.0,60.0,60.0,HKD,LHR_Data_Export.xlsx,LHR station sales / document owner,Apparel category owner / pricing owner,Peak unit price for category
+Apparel,LHR,2026-05-19,60,3600.0,60.0,60.0,HKD,LHR_Data_Export.xlsx,LHR station sales / document owner,Apparel category owner / pricing owner,Peak unit price for category
+Electronics,HKG,2026-05-18,45,9000.0,200.0,200.0,HKD,HKG_Revenue_May26.csv,HKG station sales / document owner,Electronics category owner / pricing owner,Peak unit price for category
+Electronics,HKG,2026-05-19,38,7600.0,200.0,200.0,HKD,HKG_Revenue_May26.csv,HKG station sales / document owner,Electronics category owner / pricing owner,Peak unit price for category
+Electronics,KIX,2026-05-18,30,6000.0,200.0,200.0,HKD,KIX_Sales_Report.xlsx,KIX station sales / document owner,Electronics category owner / pricing owner,Peak unit price for category
+Electronics,KIX,2026-05-19,42,8400.0,200.0,200.0,HKD,KIX_Sales_Report.xlsx,KIX station sales / document owner,Electronics category owner / pricing owner,Peak unit price for category
+Electronics,LHR,2026-05-19,25,5000.0,200.0,200.0,HKD,LHR_Data_Export.xlsx,LHR station sales / document owner,Electronics category owner / pricing owner,Peak unit price for category
+Electronics,LHR,2026-05-20,28,5600.0,200.0,200.0,HKD,LHR_Data_Export.xlsx,LHR station sales / document owner,Electronics category owner / pricing owner,Peak unit price for category

@@ -1,5 +1,5 @@
-# Sales Pricing Exception Report
+# Sales Category Peak Price Report
 
-Interactive GitHub Pages report for detecting abnormal unit pricing in `Sales_Master_Consolidated_May26.xlsx`.
+Interactive GitHub Pages report for finding the peak unit price in each product category from `Sales_Master_Consolidated_May26.xlsx`.
 
-Detection rule: unit price = gross revenue / quantity, compared against product-level median expected unit price. The report flags Watch/High/Critical variances and identifies the raw document and station/category party to investigate.
+Peak price means the highest calculated unit price within each category. Unit price = Gross Revenue / Qty. The report lists the raw document and station/category parties for follow-up.
