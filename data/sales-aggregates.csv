@@ -1,0 +1,16 @@
+station,date,product,qty,grossRevenue,currency
+HKG,2026-05-18,Accessories,120,2400.0,HKD
+HKG,2026-05-18,Electronics,45,9000.0,HKD
+KIX,2026-05-18,Apparel,85,5100.0,HKD
+KIX,2026-05-18,Electronics,30,6000.0,HKD
+LHR,2026-05-18,Accessories,150,3000.0,HKD
+LHR,2026-05-18,Apparel,40,2400.0,HKD
+HKG,2026-05-19,Apparel,55,3300.0,HKD
+HKG,2026-05-19,Electronics,38,7600.0,HKD
+KIX,2026-05-19,Accessories,95,1900.0,HKD
+KIX,2026-05-19,Electronics,42,8400.0,HKD
+LHR,2026-05-19,Apparel,60,3600.0,HKD
+LHR,2026-05-19,Electronics,25,5000.0,HKD
+HKG,2026-05-20,Accessories,110,2200.0,HKD
+KIX,2026-05-20,Apparel,90,5400.0,HKD
+LHR,2026-05-20,Electronics,28,5600.0,HKD

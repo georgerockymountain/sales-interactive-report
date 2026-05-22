@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sales Performance — Interactive Report</title>
+  <meta name="description" content="Interactive sales report generated from the sales Excel workbook." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <nav class="topbar">
+      <a href="#summary">Summary</a>
+      <a href="#insights">Insights</a>
+      <a href="#charts">Charts</a>
+      <a href="#details">Details</a>
+    </nav>
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Sales Excel · Interactive web report</p>
+        <h1>Sales Performance</h1>
+        <p class="lead">A clean dashboard for station, product and daily sales performance.</p>
+        <div class="actions">
+          <a class="button primary" href="#charts">Explore dashboard</a>
+          <a class="button" href="data/sales-aggregates.csv" download>Download sanitized CSV</a>
+        </div>
+      </div>
+      <aside class="hero-card" id="run-card"></aside>
+    </div>
+  </header>
+
+  <main>
+    <section id="summary" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Headline KPIs</p>
+        <h2>Revenue, volume and mix across stations and product categories.</h2>
+      </div>
+      <div class="cards" id="metric-cards"></div>
+      <div class="callout"><strong>Publication note:</strong> source filenames/workbook metadata are not shown; the dashboard uses station/date/product aggregates only.</div>
+    </section>
+
+    <section id="insights" class="section panel">
+      <div class="section-heading">
+        <p class="eyebrow">Executive readout</p>
+        <h2>Quick findings from the sales workbook.</h2>
+      </div>
+      <div class="insight-grid" id="insight-grid"></div>
+    </section>
+
+    <section id="charts" class="section">
+      <div class="section-heading split">
+        <div>
+          <p class="eyebrow">Interactive dashboard</p>
+          <h2>Filter by station or product to update every view.</h2>
+        </div>
+        <div class="controls">
+          <select id="station-filter"><option value="all">All stations</option></select>
+          <select id="product-filter"><option value="all">All products</option></select>
+        </div>
+      </div>
+      <div class="chart-grid">
+        <article class="chart-card wide"><h3>Daily gross revenue</h3><div id="date-chart" class="chart"></div></article>
+        <article class="chart-card"><h3>Revenue by station</h3><div id="station-chart" class="chart"></div></article>
+        <article class="chart-card"><h3>Revenue by product</h3><div id="product-chart" class="chart"></div></article>
+        <article class="chart-card wide"><h3>Station × product matrix</h3><div id="matrix" class="matrix"></div></article>
+      </div>
+    </section>
+
+    <section id="details" class="section panel">
+      <div class="section-heading split">
+        <div>
+          <p class="eyebrow">Details</p>
+          <h2>Aggregated sales rows.</h2>
+        </div>
+        <input id="search" type="search" placeholder="Search station, product, date…" />
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Date</th><th>Station</th><th>Product</th><th>Qty</th><th>Gross revenue</th><th>Avg/unit</th></tr></thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Generated from <code>Sales_Master_Consolidated_May26.xlsx</code>. Separate from the DPO report, which remains online unchanged.</p>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
